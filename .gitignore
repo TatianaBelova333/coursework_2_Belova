@@ -1,0 +1,4 @@
+/tests/api_posts_blueprint_test/.pytest_cache/
+/.pytest_cache/
+/tests/hashtags_blueprint_test/.pytest_cache/
+/venv/
