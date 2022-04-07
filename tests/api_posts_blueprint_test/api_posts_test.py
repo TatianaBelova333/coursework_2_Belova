@@ -12,3 +12,4 @@ class TestApiPosts:
         response = test_client.get('/api/posts/1', follow_redirects=True)
         assert type(response.json) == dict, 'Возвращаемый формат данных - не словарь'
         assert set(response.json.keys()) == keys_expected, 'неверный список ключей'
+

@@ -62,7 +62,15 @@ class PostDAO:
         for post in all_posts:
             if query in post.get('content', '').lower() or query in post.get('poster_name', '').lower():
                 posts_found.append(post)
+        # sort by pk
+        posts_found = sorted(posts_found, key=lambda x: x['pk'])
         return posts_found
+
+    def get_limited_num_of_posts_found(self, user_query, limited_number):
+        posts = self.get_posts_by_user_query(user_query)
+        if len(posts) >= limited_number:
+            return posts[:limited_number]
+        return posts
 
     def get_posts_by_hashtag(self, hashtag):
         posts_with_hashtag = []

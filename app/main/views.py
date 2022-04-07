@@ -21,7 +21,7 @@ def search_for_post():
     query = request.args.get('query')
     if not query or set(query) == {' '}:  # if search bar left blank or contains whitespaces only
         return page_index()
-    posts_found = posts.get_posts_by_user_query(query)
+    posts_found = posts.get_limited_num_of_posts_found(query, 10)
     number_of_found_posts = len(posts_found)
     return render_template('search.html',
                            number_of_found_posts=number_of_found_posts,
